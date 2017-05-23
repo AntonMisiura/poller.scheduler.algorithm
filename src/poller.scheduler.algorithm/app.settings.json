@@ -1,0 +1,12 @@
+{
+  "Configuration": {
+    "Title": "Pioneer Console Boilerplate"
+  },
+  "ODB.Connection.SerialPort": {
+    "PortName": "COM9",
+    "BaudRate": "9600",
+    "Parity": "Parity.None",
+    "DataBits": "8",
+    "StopBits": "StopBits.One"
+  }
+}

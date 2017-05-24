@@ -2,11 +2,44 @@
   "Configuration": {
     "Title": "Pioneer Console Boilerplate"
   },
-  "ODB.Connection.SerialPort": {
+  "Config": {
     "PortName": "COM9",
     "BaudRate": "9600",
-    "Parity": "Parity.None",
     "DataBits": "8",
-    "StopBits": "StopBits.One"
-  }
-}
+    "Parity": "None",
+    "StopBits": "One"
+  },
+
+  "Pids": [
+    {
+      "Name": "RPM",
+      "Priority": "8",
+      "Code": "07"
+    },
+    {
+      "Name": "Speed",
+      "Priority": "8",
+      "Code": "06"
+    },
+    {
+      "Name": "Throttle",
+      "Priority": "8",
+      "Code": "05"
+    },
+    {
+      "Name": "TempCat",
+      "Priority": "2",
+      "Code": "09"
+    },
+    {
+      "Name": "TempAmbient",
+      "Priority": "3",
+      "Code": "03"
+    },
+    {
+      "Name": "ATFCoef",
+      "Priority": "6",
+      "Code": "01"
+    }
+  ]
+  } 

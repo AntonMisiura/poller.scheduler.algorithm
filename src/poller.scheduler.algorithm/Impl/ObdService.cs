@@ -6,14 +6,14 @@ namespace poller.scheduler.algorithm.Impl
 {
     public class ObdService : IObdService
     {
+        private readonly AppSettings _config;
         private readonly ILogger<ObdService> _logger;
-        private readonly AppSettings.AppSettings _config;
 
         public ObdService(ILogger<ObdService> logger,
-            IOptions<AppSettings.AppSettings> config)
+            IOptions<AppSettings> config)
         {
-            _config = config.Value;
             _logger = logger;
+            _config = config.Value;
         }
 
         public void Run()

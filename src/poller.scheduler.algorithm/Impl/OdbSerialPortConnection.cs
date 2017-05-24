@@ -11,13 +11,13 @@ namespace poller.scheduler.algorithm.Impl
     {
         private ILogger<OdbSerialPortConnection> _logger;
         private SerialPortStream Port;
-        private AppSettings.AppSettings _config;
+        private AppSettings _config;
 
         public OdbSerialPortConnection(ILogger<OdbSerialPortConnection> logger,
-            IOptions<AppSettings.AppSettings> config)
+            IOptions<AppSettings> config)
         {
-            _config = config.Value;
             _logger = logger;
+            _config = config.Value;
         }
 
         public bool Open()
@@ -27,7 +27,7 @@ namespace poller.scheduler.algorithm.Impl
                 if (Port == null)
                 {
                     Port = new SerialPortStream();
-                    Port = new SerialPortStream(_config.PortName.ToString(), _config.BaudRate, _config.DataBits, _config.Parity, _config.StopBits);
+                    Port = new SerialPortStream(_config.PortName, _config.BaudRate, _config.DataBits, _config.Parity, _config.StopBits);
                     Port.Open();
                     Console.WriteLine("Serial port is opened.");
                 }

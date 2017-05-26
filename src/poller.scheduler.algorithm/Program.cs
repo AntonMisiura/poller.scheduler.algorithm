@@ -11,7 +11,6 @@ namespace poller.scheduler.algorithm
 {
     public class Program
     {
-        public static IConfigurationSection Configuration { get; set; }
         public static void Main(string[] args)
         {
             // create service collection
@@ -42,7 +41,7 @@ namespace poller.scheduler.algorithm
             serviceCollection.AddOptions();
 
             var serialPortSettings = configuration.GetSection("SerialPortSettings");
-            serviceCollection.Configure<SerialPortSettings>(serialPortSettings);
+            serviceCollection.Configure<AppSettings>(serialPortSettings);
 
             var pidsSettings = configuration.GetSection("Car");
             serviceCollection.Configure<Car>(pidsSettings);

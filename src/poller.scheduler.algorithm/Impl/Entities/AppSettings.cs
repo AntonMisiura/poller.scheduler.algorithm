@@ -2,7 +2,7 @@
 
 namespace poller.scheduler.algorithm.Impl.Entities
 {
-    public class SerialPortSettings
+    public class AppSettings
     {
         /// <summary>
         /// Serial port parameters

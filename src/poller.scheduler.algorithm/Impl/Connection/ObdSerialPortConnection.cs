@@ -11,10 +11,10 @@ namespace poller.scheduler.algorithm.Impl.Connection
     {
         private ILogger<ObdSerialPortConnection> _logger;
         private SerialPortStream Port;
-        private SerialPortSettings _settings;
+        private AppSettings _settings;
 
         public ObdSerialPortConnection(ILogger<ObdSerialPortConnection> logger,
-            IOptions<SerialPortSettings> settings)
+            IOptions<AppSettings> settings)
         {
             _logger = logger;
             _settings = settings.Value;
@@ -30,6 +30,7 @@ namespace poller.scheduler.algorithm.Impl.Connection
             {
                 if (Port == null)
                 {
+                    Port = new SerialPortStream();
                     Port = new SerialPortStream(_settings.PortName, _settings.BaudRate, _settings.DataBits, _settings.Parity, _settings.StopBits);
                     Port.Open();
                     Console.WriteLine("Serial port is opened.");

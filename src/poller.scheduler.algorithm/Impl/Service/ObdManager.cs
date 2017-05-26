@@ -1,10 +1,7 @@
 ﻿using System;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using poller.scheduler.algorithm.Contract;
 using poller.scheduler.algorithm.Impl.Command;
 using poller.scheduler.algorithm.Impl.Connection;
-using poller.scheduler.algorithm.Impl.Entities;
 
 namespace poller.scheduler.algorithm.Impl.Service
 {
@@ -15,7 +12,6 @@ namespace poller.scheduler.algorithm.Impl.Service
 
         public ObdManager()
         {
-            // Load below code from configuration or inject
             _connection = new ObdSerialPortConnection();
             _commands = new IObdCommand[]
             {

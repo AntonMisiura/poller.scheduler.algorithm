@@ -2,7 +2,7 @@
 
 namespace poller.scheduler.algorithm.Contract
 {
-    public interface IOdbConnection : IDisposable
+    public interface IObdConnection : IDisposable
     {
         bool Open();
         void Close();

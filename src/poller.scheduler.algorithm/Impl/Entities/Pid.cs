@@ -1,4 +1,4 @@
-﻿namespace poller.scheduler.algorithm.Impl
+﻿namespace poller.scheduler.algorithm.Impl.Entities
 {
     public class Pid
     {

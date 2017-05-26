@@ -1,11 +1,11 @@
 ﻿namespace poller.scheduler.algorithm.Contract
 {
-    public interface IOdbCommand
+    public interface IObdCommand
     {
         string Name { get; }
 
         string ToString();
 
-        bool Execute(IOdbConnection connection);
+        bool Execute(IObdConnection connection);
     }
 }

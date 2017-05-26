@@ -1,11 +1,9 @@
 ﻿using RJCP.IO.Ports;
 
-namespace poller.scheduler.algorithm.Impl
+namespace poller.scheduler.algorithm.Impl.Entities
 {
-    public class AppSettings
+    public class SerialPortSettings
     {
-        public string Title { get; set; }
-
         /// <summary>
         /// Serial port parameters
         /// </summary>
@@ -14,12 +12,5 @@ namespace poller.scheduler.algorithm.Impl
         public Parity Parity { get; set; }
         public string PortName { get; set; }
         public StopBits StopBits { get; set; }
-
-        /// <summary>
-        /// PID's parameters
-        /// </summary>
-        public int Code { get; set; }
-        public string Name { get; set; }
-        public int Priority { get; set; }
     }
 }

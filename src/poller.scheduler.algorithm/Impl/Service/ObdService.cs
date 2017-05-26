@@ -1,16 +1,17 @@
 ﻿using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using poller.scheduler.algorithm.Contract;
+using poller.scheduler.algorithm.Impl.Entities;
 
-namespace poller.scheduler.algorithm.Impl
+namespace poller.scheduler.algorithm.Impl.Service
 {
     public class ObdService : IObdService
     {
-        private readonly AppSettings _config;
+        private readonly Car _config;
         private readonly ILogger<ObdService> _logger;
 
         public ObdService(ILogger<ObdService> logger,
-            IOptions<AppSettings> config)
+            IOptions<Car> config)
         {
             _logger = logger;
             _config = config.Value;
@@ -18,7 +19,7 @@ namespace poller.scheduler.algorithm.Impl
 
         public void Run()
         {
-            _logger.LogWarning($"Wow! We are now in test service of {_config.Title}");
+            _logger.LogWarning($"Wow! We are now in test service of {_config.Pids}");
         }
     }
 }

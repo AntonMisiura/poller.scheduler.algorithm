@@ -2,22 +2,26 @@
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using poller.scheduler.algorithm.Contract;
+using poller.scheduler.algorithm.Impl.Entities;
 using RJCP.IO.Ports;
 
-
-namespace poller.scheduler.algorithm.Impl
+namespace poller.scheduler.algorithm.Impl.Connection
 {
-    public class OdbSerialPortConnection : IOdbConnection
+    public class ObdSerialPortConnection : IObdConnection
     {
-        private ILogger<OdbSerialPortConnection> _logger;
+        private ILogger<ObdSerialPortConnection> _logger;
         private SerialPortStream Port;
-        private AppSettings _config;
+        private SerialPortSettings _settings;
 
-        public OdbSerialPortConnection(ILogger<OdbSerialPortConnection> logger,
-            IOptions<AppSettings> config)
+        public ObdSerialPortConnection(ILogger<ObdSerialPortConnection> logger,
+            IOptions<SerialPortSettings> settings)
         {
             _logger = logger;
-            _config = config.Value;
+            _settings = settings.Value;
+        }
+
+        public ObdSerialPortConnection()
+        {
         }
 
         public bool Open()
@@ -26,8 +30,7 @@ namespace poller.scheduler.algorithm.Impl
             {
                 if (Port == null)
                 {
-                    Port = new SerialPortStream();
-                    Port = new SerialPortStream(_config.PortName, _config.BaudRate, _config.DataBits, _config.Parity, _config.StopBits);
+                    Port = new SerialPortStream(_settings.PortName, _settings.BaudRate, _settings.DataBits, _settings.Parity, _settings.StopBits);
                     Port.Open();
                     Console.WriteLine("Serial port is opened.");
                 }

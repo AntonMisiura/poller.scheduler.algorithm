@@ -8,12 +8,12 @@ namespace poller.scheduler.algorithm.Impl
 {
     public class App
     {
-        private readonly AppSettings _config;
+        private readonly Car _config;
         private readonly ILogger<App> _logger;
         private readonly IObdService _obdConnectionService;
 
         public App(ILogger<App> logger,
-            IOptions<AppSettings> config,
+            IOptions<Car> config,
             IObdService obdConnectionService)
         {
             _logger = logger;
@@ -23,7 +23,7 @@ namespace poller.scheduler.algorithm.Impl
 
         public void Run()
         {
-            _logger.LogInformation($"This is a console application for {_config.Title}");
+            _logger.LogInformation($"This is a console application for {_config.Pids}");
 
             _obdConnectionService.Run();
 

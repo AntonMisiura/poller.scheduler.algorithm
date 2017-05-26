@@ -35,16 +35,15 @@ namespace poller.scheduler.algorithm
             var configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("app.settings.json", false)
+                .AddJsonFile("pids.settings.json", false)
                 .Build();
             serviceCollection.AddOptions();
 
-            //IConfigurationSection pidsConfigurationSection = configuration.GetSection("Pids");
-            //IEnumerable<IConfigurationSection> pidsChildren = pidsConfigurationSection.GetChildren();
-            //List<string> pids = (from c in pidsChildren select c.Value).ToList();
+            var appSettings = configuration.GetSection("Config");
+            serviceCollection.Configure<AppSettings>(appSettings);
 
-            serviceCollection.Configure<AppSettings>(configuration.GetSection("Pids"));
-            serviceCollection.Configure<AppSettings>(configuration.GetSection("Config"));
-            serviceCollection.Configure<AppSettings>(configuration.GetSection("Configuration"));
+            var pidsSettings = configuration.GetSection("Car");
+            serviceCollection.Configure<Car>(pidsSettings);
 
             // add services
             serviceCollection.AddTransient<IObdService, ObdService>();

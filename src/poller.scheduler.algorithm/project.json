@@ -17,7 +17,8 @@
     "Microsoft.Extensions.Logging": "1.1.0",
     "Microsoft.Extensions.Logging.Console": "1.0.1",
     "Microsoft.Extensions.Logging.Debug": "1.0.1",
-    "SerialPortStreamCore": "2.1.0"
+    "SerialPortStreamCore": "2.1.0",
+    "System.Linq.Parallel": "4.0.1"
   },
 
   "frameworks": {

@@ -18,6 +18,7 @@ namespace poller.scheduler.algorithm.Impl
         private readonly IOptions<Car> _config;
         private readonly IOptions<AppSettings> _settings;
         private readonly ILogger<ObdSerialPortConnection> _logger;
+        private List<PidObj> _list;
 
         public App(ILogger<ObdSerialPortConnection> logger,
             IOptions<Car> config,
@@ -39,8 +40,8 @@ namespace poller.scheduler.algorithm.Impl
                 new SupportedPidsCommand(),
                 new EngineRpmCommand(),
                 new MassAirflowCommand(),
-                new EngineTemperatureCommand(), 
-                new ThrottlePositionCommand(), 
+                new EngineTemperatureCommand(),
+                new ThrottlePositionCommand(),
                 new RoadSpeedCommand()
             };
 
@@ -50,6 +51,22 @@ namespace poller.scheduler.algorithm.Impl
 
             //start algorithm, get output queue 
             var poller = new Poller(pidObjs, "88198000");
+
+            _list = poller._queue;
+
+            //foreach (var pid in _list)
+            //{
+            //    if (pid.Code == "0C")
+            //        new EngineRpmCommand();
+            //    if (pid.Code == "0D")
+            //        new RoadSpeedCommand();
+            //    if (pid.Code == "11")
+            //        new ThrottlePositionCommand();
+            //    if (pid.Code == "05")
+            //        new EngineTemperatureCommand();
+            //    if (pid.Code == "10")
+            //        new MassAirflowCommand();
+            //}
 
             Execute();
         }

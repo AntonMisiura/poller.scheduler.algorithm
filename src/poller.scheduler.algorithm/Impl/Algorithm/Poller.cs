@@ -9,7 +9,7 @@ namespace poller.scheduler.algorithm.Impl.Algorithm
     {
         private const int WorkingSetSize = 1000;
 
-        private List<PidObj> _queue;
+        public List<PidObj> _queue;
 
         public Poller(List<PidObj> pids, string obdResponse)
         {

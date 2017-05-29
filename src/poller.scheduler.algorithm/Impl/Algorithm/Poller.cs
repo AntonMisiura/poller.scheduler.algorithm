@@ -7,6 +7,7 @@ namespace poller.scheduler.algorithm.Impl.Algorithm
 {
     public class Poller
     {
+        //TODO: move to config
         private const int WorkingSetSize = 1000;
 
         public List<PidObj> _queue;

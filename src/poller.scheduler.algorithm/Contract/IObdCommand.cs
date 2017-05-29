@@ -4,6 +4,8 @@
     {
         string Name { get; }
 
+        string Pid { get; }
+
         string ToString();
 
         bool Execute(IObdConnection connection);

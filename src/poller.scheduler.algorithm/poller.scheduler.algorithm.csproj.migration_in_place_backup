@@ -18,11 +18,17 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="1.0.2" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="1.0.2" />
     <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="1.0.2" />
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="1.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="1.0.2" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="1.0.2" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="1.0.2" />
     <PackageReference Include="SerialPortStreamCore" Version="2.1.0" />
-    <PackageReference Include="System.Linq.Parallel" Version="4.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Impl\Command\" />
+    <Folder Include="Impl\Connection\" />
+    <Folder Include="Impl\Entities\" />
+    <Folder Include="Impl\Service\" />
   </ItemGroup>
 
 </Project>

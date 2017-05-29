@@ -8,6 +8,7 @@
             this.Name = name;
             this.Code = code;
             this.Priority = priority;
+            this.Percent = 0;
         }
     }
 }

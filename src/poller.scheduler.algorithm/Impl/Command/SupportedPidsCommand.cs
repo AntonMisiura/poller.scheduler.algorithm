@@ -12,7 +12,7 @@ namespace poller.scheduler.algorithm.Impl.Command
             RequestsNum = 1;
         }
 
-        public int SupportedPids { get; private set; }
+        public string SupportedPids { get; private set; }
 
         public override string ToString()
         {
@@ -21,7 +21,9 @@ namespace poller.scheduler.algorithm.Impl.Command
 
         protected override bool Parse(string data)
         {
-            SupportedPids = Convert.ToInt32(data.Split(' ')[2]);
+            SupportedPids = data.Remove(0, 6);
+            SupportedPids = SupportedPids.Replace(" ", string.Empty);
+            Console.WriteLine(SupportedPids);
             return true;
         }
     }

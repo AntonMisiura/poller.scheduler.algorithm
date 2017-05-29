@@ -5,32 +5,42 @@
       {
         "Name": "RPM",
         "Priority": "8",
-        "Code": "07"
+        "Code": "0C"
       },
       {
         "Name": "Speed",
         "Priority": "8",
-        "Code": "06"
+        "Code": "0D"
       },
       {
         "Name": "Throttle",
         "Priority": "8",
-        "Code": "05"
+        "Code": "11"
       },
       {
         "Name": "TempCat",
         "Priority": "2",
-        "Code": "09"
+        "Code": "05"
       },
       {
-        "Name": "TempAmbient",
+        "Name": "MassAirflow",
+        "Priority": "3",
+        "Code": "10"
+      },
+      {
+        "Name": "ONE",
+        "Priority": "8",
+        "Code": "15"
+      },
+      {
+        "Name": "TWO",
+        "Priority": "2",
+        "Code": "07"
+      },
+      {
+        "Name": "THEREE",
         "Priority": "3",
         "Code": "03"
-      },
-      {
-        "Name": "ATFCoef",
-        "Priority": "6",
-        "Code": "01"
       }
     ]
   }

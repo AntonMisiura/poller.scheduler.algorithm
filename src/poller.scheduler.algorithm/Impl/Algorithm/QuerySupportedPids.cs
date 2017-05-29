@@ -27,7 +27,7 @@ namespace poller.scheduler.algorithm.Impl.Algorithm
         
         public void CheckPids(List<PidObj> pidsfromconfig, string obdResponse)
         {
-            SupportedPids =  _translator.GetAvailablePids("88198000")
+            SupportedPids =  _translator.GetAvailablePids(obdResponse)
                 .Join(pidsfromconfig, n => n, p => p.Code, (n, p) =>
                 new PidObj(p.Name, p.Code, p.Priority)).ToList();
         }

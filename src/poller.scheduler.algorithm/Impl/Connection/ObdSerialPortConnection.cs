@@ -64,13 +64,13 @@ namespace poller.scheduler.algorithm.Impl.Connection
 
         public int Read(byte[] buffer, int offset, int count)
         {
-            Console.WriteLine("Reading data...");
+            //Console.WriteLine("Reading data...");
             return Port?.Read(buffer, offset, count) ?? -1;
         }
 
         public void Write(string data)
         {
-            Console.WriteLine("Writing data...");
+            //Console.WriteLine("Writing data...");
             Port?.Write(data);
         }
 

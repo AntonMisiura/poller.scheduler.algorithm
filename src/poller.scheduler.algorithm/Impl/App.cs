@@ -18,18 +18,14 @@ namespace poller.scheduler.algorithm.Impl
         private readonly IOptions<Car> _config;
         private readonly IOptions<AppSettings> _settings;
         private readonly ILogger<ObdSerialPortConnection> _logger;
-        private readonly IObdService _obdConnectionService;
-        private string _supportedPids;
 
         public App(ILogger<ObdSerialPortConnection> logger,
             IOptions<Car> config,
-            IOptions<AppSettings> settings,
-            IObdService obdConnectionService)
+            IOptions<AppSettings> settings)
         {
             _logger = logger;
             _config = config;
             _settings = settings;
-            _obdConnectionService = obdConnectionService;
         }
 
         public void Run()
@@ -41,7 +37,11 @@ namespace poller.scheduler.algorithm.Impl
             _commands = new IObdCommand[]
             {
                 new SupportedPidsCommand(),
-                new EngineRpmCommand()
+                new EngineRpmCommand(),
+                new MassAirflowCommand(),
+                new EngineTemperatureCommand(), 
+                new ThrottlePositionCommand(), 
+                new RoadSpeedCommand()
             };
 
             //converting Car List to PidObject List with percents

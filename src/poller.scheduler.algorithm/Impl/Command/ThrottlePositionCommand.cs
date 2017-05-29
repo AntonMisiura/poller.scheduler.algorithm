@@ -22,6 +22,7 @@ namespace poller.scheduler.algorithm.Impl.Command
         protected override bool Parse(string data)
         {
             ThrottlePosition = Convert.ToInt32(data.Split(' ')[2], 16) * 100 / 255;
+            Console.WriteLine(ThrottlePosition);
             return true;
         }
     }

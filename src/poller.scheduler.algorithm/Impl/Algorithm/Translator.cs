@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace poller.scheduler.algorithm
+namespace poller.scheduler.algorithm.Impl.Algorithm
 {
     public class Translator
     {

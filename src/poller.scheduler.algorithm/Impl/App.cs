@@ -18,7 +18,7 @@ namespace poller.scheduler.algorithm.Impl
         private readonly IOptions<Car> _config;
         private readonly IOptions<AppSettings> _settings;
         private readonly ILogger<ObdSerialPortConnection> _logger;
-        private List<PidObj> _pidObjList;
+        private List<PidObj> _list;
 
         public App(ILogger<ObdSerialPortConnection> logger,
             IOptions<Car> config,
@@ -35,12 +35,6 @@ namespace poller.scheduler.algorithm.Impl
             _connection = new ObdSerialPortConnection(_logger, _settings);
             _connection.Open();
 
-            // take current assambly or load from config 
-            // foreach all types in asambly 
-            // find all types inherited from IOdbCommand
-            // make instance of command to get pid (using Activator)
-            // Make dictionary <Pid, Type>
-            
             _commands = new IObdCommand[]
             {
                 new SupportedPidsCommand(),
@@ -58,7 +52,7 @@ namespace poller.scheduler.algorithm.Impl
             //start algorithm, get output queue 
             var poller = new Poller(pidObjs, "88198000");
 
-            _pidObjList = poller._queue;
+            _list = poller._queue;
 
             //foreach (var pid in _list)
             //{
@@ -74,6 +68,7 @@ namespace poller.scheduler.algorithm.Impl
             //        new MassAirflowCommand();
             //}
 
+            Execute();
         }
 
         public string Execute()

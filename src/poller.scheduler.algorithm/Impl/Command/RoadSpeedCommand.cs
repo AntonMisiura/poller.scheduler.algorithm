@@ -22,7 +22,7 @@ namespace poller.scheduler.algorithm.Impl.Command
         protected override bool Parse(string data)
         {
             RoadSpeed = Convert.ToInt32(data.Split(' ')[2], 16);
-            Console.WriteLine(RoadSpeed);
+            Console.WriteLine("Road Speed: " + RoadSpeed);
             return true;
         }
     }

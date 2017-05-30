@@ -25,7 +25,7 @@ namespace poller.scheduler.algorithm.Impl.Command
             var dataB = Convert.ToInt32(data.Split(' ')[3], 16);
 
             EngineRpm = (dataA + dataB) / 4.0;
-            Console.WriteLine(EngineRpm);
+            Console.WriteLine("Engine RPM: " + EngineRpm);
 
             return true;
         }

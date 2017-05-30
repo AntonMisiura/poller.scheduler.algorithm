@@ -23,7 +23,7 @@ namespace poller.scheduler.algorithm.Impl.Command
         {
             SupportedPids = data.Remove(0, 6);
             SupportedPids = SupportedPids.Replace(" ", string.Empty);
-            Console.WriteLine(SupportedPids);
+            Console.WriteLine("Supported PID's: " + SupportedPids);
             return true;
         }
     }

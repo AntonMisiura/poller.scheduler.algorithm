@@ -22,7 +22,7 @@ namespace poller.scheduler.algorithm.Impl.Command
         protected override bool Parse(string data)
         {
             EngineTemperature = Convert.ToInt32(data.Split(' ')[2], 16) - 40;
-            Console.WriteLine(EngineTemperature);
+            Console.WriteLine("Engine Temperature: " + EngineTemperature);
             return true;
         }
     }

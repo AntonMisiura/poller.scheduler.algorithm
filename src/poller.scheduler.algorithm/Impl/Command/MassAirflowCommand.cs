@@ -25,7 +25,7 @@ namespace poller.scheduler.algorithm.Impl.Command
             var dataB = Convert.ToInt32(data.Split(' ')[3], 16);
 
             MassAirflow = (dataA + dataB) / 100.0;
-            Console.WriteLine(MassAirflow);
+            Console.WriteLine("MAF airflow rate: " + MassAirflow);
 
             return true;
         }

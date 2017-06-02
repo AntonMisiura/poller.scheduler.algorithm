@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using poller.scheduler.algorithm.Contract;
 using poller.scheduler.algorithm.Impl.Algorithm;
+using poller.scheduler.algorithm.Impl.Command;
 using poller.scheduler.algorithm.Impl.Connection;
 using poller.scheduler.algorithm.Impl.Entities;
 
@@ -33,12 +34,17 @@ namespace poller.scheduler.algorithm.Impl
             _connection = new ObdSerialPortConnection(_logger, _settings);
             _connection.Open();
 
+            //Getting available-supported pids
+            var supportedPidsCommand = new SupportedPidsCommand();
+            supportedPidsCommand.Execute(_connection);
+            var supportedPids = supportedPidsCommand.SupportedPids;
+            
             //converting Car List to PidObject List with percents
             var configPids = _config.Value.Pids;
             var pidObjs = configPids.Select(pid => new PidObj(pid.Name, pid.Code, pid.Priority)).ToList();
 
             //start algorithm, get output queue 
-            var poller = new Poller(pidObjs, "88198000");
+            var poller = new Poller(pidObjs, supportedPids);
 
             _pidObjectsList = poller._queue;
 
